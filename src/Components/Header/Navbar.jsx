@@ -12,9 +12,11 @@ import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
-import { DialogWithForm } from '../SigninModal';
+import { DialogWithForm } from '../../Pages/SigninModal';
+import { Link } from 'react-router-dom';
 
-const pages = ['Products', 'Pricing', 'Blog'];
+
+const pages = ['About me', 'Projects', 'My Skills', "Let's Connect"];
 const settings = [<DialogWithForm/>];
 
 function ResponsiveAppBar() {
@@ -123,7 +125,8 @@ function ResponsiveAppBar() {
               <Button
                 key={page}
                 onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: 'black', display: 'block' }}
+                sx={{ my: 2, color: 'black', display: 'block'}}
+                className='bg-gray-500'
               >
                 {page}
               </Button>
@@ -156,7 +159,7 @@ function ResponsiveAppBar() {
             >
               {settings.map((setting) => (
                 <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                  <Typography textAlign="center" onClick={handleLogin}>{setting}</Typography>
+                  <Typography textAlign="center" onClick={handleLogin}><Link to={"/login"}>{setting}</Link></Typography>
                 </MenuItem>
               ))}
             </Menu>

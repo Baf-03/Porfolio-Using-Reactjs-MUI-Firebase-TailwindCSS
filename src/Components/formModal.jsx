@@ -21,7 +21,7 @@ export default function BasicModalDialog() {
   const [projectDisc, setprojectDisc] = React.useState("");
   const [productDesc, setproductDesc] = React.useState("");
   const [loader, setloader] = React.useState(false);
-
+  let [check,setcheck]=React.useState("");
   const addTodo = async (e) => {
     e.preventDefault();
     console.log("projectName", projectName);
@@ -44,16 +44,25 @@ export default function BasicModalDialog() {
       alert(error.message);
     }
   };
+  React.useEffect(()=>{
+    if(localStorage.getItem("uid") =="MzZwFVqf4ZXNIqgqJ9WjXaOvu5F2"){
+      setcheck("MzZwFVqf4ZXNIqgqJ9WjXaOvu5F2")
+    } 
+    else{
+      setcheck("")
+    }
+  })
   return (
     <React.Fragment>
-      <Button
+      {check=="MzZwFVqf4ZXNIqgqJ9WjXaOvu5F2"?( <Button
         variant="outlined"
         color="neutral"
         startDecorator={<Add />}
         onClick={() => setOpen(true)}
       >
         New project
-      </Button>
+      </Button>):(<>hello</>)}
+     
       <Modal open={open} onClose={() => setOpen(false)}>
         <ModalDialog>
           <DialogTitle>Create new project</DialogTitle>

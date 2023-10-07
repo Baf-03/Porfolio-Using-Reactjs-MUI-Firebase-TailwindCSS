@@ -54,7 +54,7 @@ function Introduction() {
         <h1 className='font-bold text-[4rem]'>Hi, I’m <span className='backgroundimage'>Bilal Ahmed</span></h1>
         <div className='flex font-bold text-[3rem] ' > I am <span className='text-red-500 ps-2'> {word}</span> <Typewriter text="" delay={1000} /> </div>
       <div className='pt-5 pe-5 font-light' >
-      I am Bilal Ahmed, a persistent Computer Science undergraduate in a well-recognized institute "University of Karachi - UBIT" having knowledge of Web Development and Data Analytics. I am Skilled in designing creative Web Pages and Patterns. A technology enthusiast who believes in the technology revolution. I keep myself updated on the upcoming technologies which will revolutionize the digital world in the future and will solve modern-day life problems.
+      I am Bilal Ahmed, a persistent Computer Science undergraduate in a well-recognized institute "University of Karachi - UBIT" having knowledge of Web Development I am Skilled in designing creative Web Pages and Patterns. A technology enthusiast who believes in the technology revolution. I keep myself updated on the upcoming technologies which will revolutionize the digital world in the future and will solve modern-day life problems.
      <div className='flex gap-11 mt-[15%]  items-center  '>
       <div className='text-[3rem] cursor-pointer'><FiLinkedin /></div>
       <div className='text-[3rem] cursor-pointer'><BiLogoUpwork/></div>
