@@ -10,7 +10,7 @@ function App() {
 
   return (
     <>
-      <div className="bg-white-90">
+      <div className=" sticky top-0 bg-white z-20 w-[100%]" >
         <ResponsiveAppBar/>
       </div>
     <Routes>

@@ -65,7 +65,7 @@ function Introduction() {
   
       </div>
 
-      <div className="imageside bg-gray-300 w-[35%] flex justify-center h-[35rem] relative mt-[5%] rounded-lg ml-[10%]" >
+      <div className="imageside bg-gray-300 w-[27%] flex justify-center h-[35rem] relative mt-[2%] rounded-lg ml-[10%]" >
          <img src={meimg} className='h-[45.4rem] absolute top-[-30%] left-1  ' data-aos="flip-left"
      data-aos-easing="ease-out-cubic"
      data-aos-duration="2000" />

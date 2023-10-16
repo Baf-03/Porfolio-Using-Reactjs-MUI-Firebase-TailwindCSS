@@ -10,19 +10,23 @@ import DialogContent from '@mui/joy/DialogContent';
 import Stack from '@mui/joy/Stack';
 import Add from '@mui/icons-material/Add';
 import { addDoc, collection } from "firebase/firestore";
-import { db } from "../firebase";
+import { db, imagedb } from "../firebase";
+import { ref, uploadBytes } from 'firebase/storage';
+import { v4 } from 'uuid';
 
 export default function BasicModalDialog() {
+  
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
   const [projectName, setprojectName] = React.useState("");
   const [projectDisc, setprojectDisc] = React.useState("");
-  const [productDesc, setproductDesc] = React.useState("");
+  const [productDesc, setproductDesc] = React.useState("1");
   const [loader, setloader] = React.useState(false);
   let [check,setcheck]=React.useState("");
   const addTodo = async (e) => {
+    uploadimg()
     e.preventDefault();
     console.log("projectName", projectName);
     console.log("projectDisc", projectDisc);
@@ -52,6 +56,17 @@ export default function BasicModalDialog() {
       setcheck("")
     }
   })
+
+  let [img,setImg] = React.useState("")
+  const [imageCounter, setImageCounter] = React.useState(0);
+
+  const uploadimg = (e) => {
+    let currentCounter = imageCounter + 1;
+    setImageCounter(currentCounter);
+
+    let img_Ref = ref(imagedb, `files/${v4()}_${currentCounter}`);
+    uploadBytes(img_Ref, img);
+  };
   return (
     <React.Fragment>
       {check=="MzZwFVqf4ZXNIqgqJ9WjXaOvu5F2"?( <Button
@@ -61,7 +76,7 @@ export default function BasicModalDialog() {
         onClick={() => setOpen(true)}
       >
         New project
-      </Button>):(<>hello</>)}
+      </Button>):(<></>)}
      
       <Modal open={open} onClose={() => setOpen(false)}>
         <ModalDialog>
@@ -86,9 +101,11 @@ export default function BasicModalDialog() {
                 <Input required  onChange={(e) => setprojectDisc(e.target.value)}/>
               </FormControl>
               <FormControl>
-                <FormLabel>Enter Sequence Number</FormLabel>
-                <Input required  onChange={(e) => setproductDesc(e.target.value)}/>
+                {/* <FormLabel>Enter Sequence Number</FormLabel> */}
+                {/* <Input required  onChange={(e) => setproductDesc(e.target.value)}/> */}
               </FormControl>
+              <input type='file' onChange={(e)=>setImg(e.target.files[0])}/>
+              {/* <button onClick={uploadimg} >Upload</button> */}
               <Button type="submit" onClick={addTodo}>Submit</Button>
             </Stack>
           </form>

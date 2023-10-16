@@ -14,7 +14,10 @@ import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
 import { DialogWithForm } from '../../Pages/SigninModal';
 import { Link } from 'react-router-dom';
+import "./Navbar.css";
+import { Link as ScrollLink, Element } from 'react-scroll';
 
+import { Route, Routes } from "react-router-dom";
 
 const pages = ['About me', 'Projects', 'My Skills', "Let's Connect"];
 const settings = [<DialogWithForm/>];
@@ -120,18 +123,52 @@ function ResponsiveAppBar() {
           >
             LOGO
           </Typography>
-          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' ,justifyContent:"center",gap:"10%"} }}>
+          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' ,justifyContent:"center"} }}>
+          <div className="header">  
+  <nav className="navbar">
+    <ul className="navbar__menu">
+      <li className="navbar__item" >
+    
+      
+            
+      <ScrollLink to="aboutme" spy={true} smooth={true} duration={500}>
+      <Link to="/">
+        <a href="#" className="navbar__link"><i data-feather="home"></i><span>About Me</span> </a>
+        </Link>
+        </ScrollLink>
+       
+      </li>
+      <li className="navbar__item">
+        <a href="#" className="navbar__link"><i data-feather="folder"></i><span>Projects</span></a>        
+      </li>
+      <li className="navbar__item">
+        <a href="#" className="navbar__link"><i data-feather="help-circle"></i><span>My Skills</span></a>        
+      </li>
+      <li className="navbar__item">
+      <ScrollLink to="letsConnect" spy={true} smooth={true} duration={500}>
+            <Link to="/">
+            <a href="#" className="navbar__link"><i data-feather="settings"></i><span>Lets'connect</span></a>  
+
+            </Link>
+
+      </ScrollLink>
+
+      </li>
+    </ul>
+  </nav>
+</div>
+</Box>
+          {/* <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' ,justifyContent:"center",gap:"10%"} }}>
             {pages.map((page) => (
               <Button
                 key={page}
                 onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: 'black', display: 'block'}}
-                className='bg-gray-500'
+                sx={{ my: 2, color: 'black', display: 'block',background:"white" }}
               >
                 {page}
               </Button>
             ))}
-          </Box>
+          </Box> */}
 
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
