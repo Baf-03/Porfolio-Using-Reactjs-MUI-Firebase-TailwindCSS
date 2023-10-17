@@ -23,6 +23,9 @@ import olxclone from "./../assets/olxclone.png";
 import ecom from "./../assets/e-com.png";
 import bgg from "./../assets/bgg.png";
 import Skills from "../Components/MiddleSection/Skills";
+import Education from "../Components/MiddleSection/Education";
+import { Navigate } from "react-router-dom";
+import { Link as ScrollLink, Element } from "react-scroll";
 
 function Home() {
   useEffect(() => {
@@ -177,7 +180,21 @@ function Home() {
       isshow: "",
     },
   ];
-
+  let [projectlimit, setprojectlimit] = useState([]);
+  let [viewmore, setViewMore] = useState(false);
+  const handleViewMore = () => {
+    setViewMore(!viewmore);
+  };
+  useEffect(() => {
+    if (viewmore) {
+      setprojectlimit(projects.slice(0));
+      return;
+    }
+    setprojectlimit(projects.slice(0, 10));
+  }, [viewmore]);
+  useEffect(() => {
+    console.log(projectlimit);
+  }, [projectlimit]);
   const [loading, setLoading] = useState(false);
 
   return (
@@ -203,6 +220,7 @@ function Home() {
           <div
             className="flex flex-col w-[100%] gap-5 flex-wrap items-center bg-fixed  p-8 bg-cover"
             style={{ backgroundImage: `url(${bgg})` }}
+            name="projects"
           >
             <div
               className="text-center"
@@ -217,12 +235,8 @@ function Home() {
                 My Portfolio
               </h1>
             </div>
-            <div
-              className="  flex  w-[100%] gap-5 flex-wrap justify-center bg-fixed  p-5 mt-5"
-              name="letsConnect"
-              id="letsConnect"
-            >
-              {projects.map((product, index) => (
+            <div className="  flex  w-[100%] gap-[3rem] flex-wrap justify-center bg-fixed  p-5 mt-5">
+              {projectlimit.map((product, index) => (
                 <div
                   className="projects w-[20vw] rounded-lg backgroundcard"
                   data-aos="fade-up-left "
@@ -250,8 +264,33 @@ function Home() {
                 </div>
               ))}
             </div>
+            {viewmore ? (
+              <ScrollLink to="projects" spy={true} smooth={true} duration={500}>
+                <div onClick={handleViewMore}>
+                  <Button>
+                    {viewmore ? (
+                      <div>View less</div>
+                    ) : (
+                      <div>view more projects</div>
+                    )}
+                  </Button>
+                </div>
+              </ScrollLink>
+            ) : (
+              <div onClick={handleViewMore}>
+                <Button>
+                  {viewmore ? (
+                    <div>View less</div>
+                  ) : (
+                    <div>view more projects</div>
+                  )}
+                </Button>
+              </div>
+            )}
           </div>
-          <Skills/>
+
+          <Skills />
+          <Education />
         </>
       )}
     </>
