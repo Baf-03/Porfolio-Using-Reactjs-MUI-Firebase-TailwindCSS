@@ -209,8 +209,8 @@ function Home() {
       ) : (
         <>
           <div name="aboutme"></div>
-          <div className="w-[100%] first-letter:xl:w-[80%] h-[85vh] mx-auto mt-[8%]">
-            <div className="mb-[100px]">
+          <div className="w-[100%] xl:w-[90%]  mx-auto mt-[6%] min-h-[85vh]" >
+            <div className="flex items-center">
               <Introduction />
             </div>
 

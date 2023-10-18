@@ -46,16 +46,16 @@ function Introduction() {
   }, [wordIndex, letterIndex, isRemoving]);
   
   return (
-    <div className='w-[100%]  flex justify-center mt-[5%]  pt-5  border-slate-300 border-b-[1px]  pb-[100px] ' >
-      <div className="textside  w-[50%] " data-aos="fade-right"
+    <div className='w-[100%]  flex justify-center  items-center   border-gray-900 border-b-[1px]  pb-[100px] min-h-[85vh]' >
+      <div className="textside  w-[60%] " data-aos="fade-right"
      data-aos-offset="300"
      data-aos-easing="ease-in-sine">
         <h3 className=''>WELCOME TO MY WORLD</h3>
-        <h1 className='font-bold text-[4rem]'>Hi, I’m <span className='backgroundimage'>Bilal Ahmed</span></h1>
+        <h1 className='font-bold lg:text-[4rem] xl:text-[4rem]'><div>Hi,</div> I’m <span className='backgroundimage'>Bilal Ahmed</span></h1>
         <div className='flex font-bold text-[3rem] ' > I am <span className='text-red-500 ps-2'> {word}</span> <Typewriter text="" delay={1000} /> </div>
-      <div className='pt-5 pe-5 font-light' >
+      <div className='pt-5 pe-5 font-light xl:text-[1.3rem] w-[80%] ' >
       I am Bilal Ahmed, a persistent Computer Science undergraduate in a well-recognized institute "University of Karachi - UBIT" having knowledge of Web Development I am Skilled in designing creative Web Pages and Patterns. A technology enthusiast who believes in the technology revolution. I keep myself updated on the upcoming technologies which will revolutionize the digital world in the future and will solve modern-day life problems.
-     <div className='flex gap-11 mt-[15%]  items-center  '>
+     <div className='flex gap-11 mt-[15%] items-center  '>
       <div className='text-[3rem] cursor-pointer'><FiLinkedin /></div>
       <div className='text-[3rem] cursor-pointer'><BiLogoUpwork/></div>
       <div className='text-[3rem] cursor-pointer'><SiFiverr/></div>
@@ -65,8 +65,8 @@ function Introduction() {
   
       </div>
 
-      <div className="imageside bg-gray-300 w-[27%] flex justify-center h-[35rem] relative mt-[2%] rounded-lg ml-[10%]" >
-         <img src={meimg} className='h-[45.4rem] absolute top-[-30%] left-1  ' data-aos="flip-left"
+      <div className="imageside bg-gray-300 w-[30%] flex justify-center relative  h-[60vh]  rounded-lg ml-[5%] " >
+         <img src={meimg} className=' h-[120%] absolute w-[100%] bottom-0 left-1 ' data-aos="flip-left"
      data-aos-easing="ease-out-cubic"
      data-aos-duration="2000" />
       </div>
